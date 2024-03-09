@@ -4,6 +4,7 @@
 
 from uuid import uuid4
 from datetime import datetime
+from models import storage
 
 class BaseModel:
     """ basemodel class for common attr """
@@ -29,10 +30,13 @@ class BaseModel:
     def save(self):
         """ updates the datetime """
         self.updated_at = datetime.now()
+        storage.new(self)
+        storage.save()
 
     def  to_dict(self):
         """ return dictionary of object in addition to class name with created_at and updated_at convested to string through iso format """
         dic = self.__dict__.copy()
+        dic['id'] = str(self.id)
         dic['__class__'] = self.__class__.__name__
         dic['created_at'] = self.created_at.isoformat()
         dic['updated_at'] = self.updated_at.isoformat()
