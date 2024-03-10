@@ -20,7 +20,7 @@ class FileStorage:
 
     def save(self):
         """ serilize objects in __objects
-        (serialization cannot deal with class
+        (serial"{obj.id}"ization cannot deal with class
         or instance. therefore, we converty them to a
         familar data type like dict throught to_dict()
         function --implemented before--
@@ -45,4 +45,4 @@ class FileStorage:
                     DictObjs = json.load(f)
 
                 for value in DictObjs.values():
-                    self.new(BaseModel(value))
+                    self.new(BaseModel(**value))
