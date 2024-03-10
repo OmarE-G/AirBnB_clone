@@ -2,6 +2,7 @@
 """Interactive python console for Airbnb Project"""
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
