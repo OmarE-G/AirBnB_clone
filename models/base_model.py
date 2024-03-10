@@ -18,7 +18,7 @@ class BaseModel:
                     value = datetime.fromisoformat(value)
                     setattr(self, key, value)
         else:
-            self.id = uuid4()
+            self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
@@ -36,7 +36,7 @@ class BaseModel:
     def  to_dict(self):
         """ return dictionary of object in addition to class name with created_at and updated_at convested to string through iso format """
         dic = self.__dict__.copy()
-        dic['id'] = str(self.id)
+        dic['id'] = self.id
         dic['__class__'] = self.__class__.__name__
         dic['created_at'] = self.created_at.isoformat()
         dic['updated_at'] = self.updated_at.isoformat()
