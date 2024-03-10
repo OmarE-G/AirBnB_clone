@@ -30,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
        
     def do_show(self, line):
         """print instance based on class name and id"""
-        if not self.check_errors(self, line): 
+        if not self.check_errors(line): 
             line = line.split()
             print(storage.all()[line[1]])
                 
@@ -55,6 +55,10 @@ class HBNBCommand(cmd.Cmd):
         """check for input errors - return False if no errors"""
         full_string = line
         line = line.split()        
+        
+        if not line:
+            print("** class name missing **")
+            return True
 
         try:
             name = line[0] if not class_only else full_string
