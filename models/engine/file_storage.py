@@ -3,11 +3,11 @@
 import json
 import os
 
+
 class FileStorage:
     """ file storage file """
     __file_path = 'file.json'
     __objects = dict()
-
 
     def __init__(self):
         """ constructor function """
@@ -17,11 +17,13 @@ class FileStorage:
         """ funcion to save objects with their ids """
         key = f"{obj.id}"
         self.__objects[key] = obj
-        
+
     def save(self):
         """ serilize objects in __objects
-        (serialization cannot deal with class or instance. therefore, we converty them to a 
-        familar data type like dict throught to_dict() function --implemented before--
+        (serialization cannot deal with class
+        or instance. therefore, we converty them to a
+        familar data type like dict throught to_dict()
+        function --implemented before--
         and path the dict to  a json file __file_path to save permenatly"""
         json_dict = dict()
         for key, value in self.__objects.items():
@@ -36,19 +38,11 @@ class FileStorage:
 
     def reload(self):
         from models.base_model import BaseModel
-        
+
         if (os.path.exists(self.__file_path)):
             if os.path.getsize(self.__file_path) > 0:
                 with open(self.__file_path, 'r', encoding='UTF-8') as f:
                     DictObjs = json.load(f)
 
                 for value in DictObjs.values():
-                    self.new(BaseModel(value)) 
-   
-            
-            
-            
-            
-                
-
-
+                    self.new(BaseModel(value))
