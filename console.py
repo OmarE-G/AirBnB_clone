@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Interactive python console for Airbnb Project"""
-
 import cmd
 
 
@@ -13,12 +12,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, line):
-        """Quit command to exit the command line"""
+        """Signal    to exit the command line"""
         print()
         return True
-    
+
     def emptyline(self):
-       pass
+        pass
 
 
 if __name__ == '__main__':
