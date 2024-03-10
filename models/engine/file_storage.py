@@ -15,7 +15,7 @@ class FileStorage:
 
     def new(self, obj):
         """ funcion to save objects with their ids """
-        key = f"{obj.__class__.__name__}.{obj.id}"
+        key = f"{obj.id}"
         self.__objects[key] = obj
         
     def save(self):
@@ -23,11 +23,12 @@ class FileStorage:
         (serialization cannot deal with class or instance. therefore, we converty them to a 
         familar data type like dict throught to_dict() function --implemented before--
         and path the dict to  a json file __file_path to save permenatly"""
+        json_dict = dict()
         for key, value in self.__objects.items():
-            self.__objects[key] = value.to_dict()
+            json_dict[key] = value.to_dict()
 
         with open(self.__file_path, 'w', encoding='UTF-8') as f:
-            json.dump(self.__objects, f)
+            json.dump(json_dict, f)
 
     def all(self):
         """ return __objects """
@@ -37,12 +38,12 @@ class FileStorage:
         from models.base_model import BaseModel
         
         if (os.path.exists(self.__file_path)):
-            DictObjs = dict()
-            with open(self.__file_path, 'r', encoding='UTF-8') as f:
-                DictObjs = json.load(f)
+            if os.path.getsize(self.__file_path) > 0:
+                with open(self.__file_path, 'r', encoding='UTF-8') as f:
+                    DictObjs = json.load(f)
 
-            for value in DictObjs.values():
-                self.new(BaseModel(value)) 
+                for value in DictObjs.values():
+                    self.new(BaseModel(value)) 
    
             
             
