@@ -1,0 +1,132 @@
+
+.filters
+{
+    color:white;
+    height: 70px;
+    width:100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    /* background-color: black; */
+    text-align: center;
+    padding-right: 30px;
+}
+  .Search
+{
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    align-items: center;
+
+    opacity: 90%;
+
+}
+.search:hover{
+    opacity: 90%;
+}
+.locations, .amenities
+{
+    height: 100%;
+    width: 25%;
+    align-items: center;
+    color:#484848;
+    line-height: 20%;
+    margin-top: 10px;
+    justify-content: left;
+    padding-right: 200px;
+    
+}
+.locations
+{
+    border-right: 1px solid #DDDDDD;
+    padding-right: 10px;
+    margin-left: 30px;
+
+}
+.amenities
+{
+    padding-left: 10px;
+   
+}
+.locations h3, .amenities h3
+{
+    font-weight: 600;
+}
+.locations h4, .amenities h4
+{
+
+    font-weight: 400;
+    font-size: 14px;
+}
+.popover li{
+    list-style: none;
+}
+.popover {
+    
+    display: none;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    /* position: relative; */
+    /* z-index: 1; */
+}
+.popover h2 {
+    font-size: 16px;
+    display: inline;
+}
+ul
+{
+    margin-bottom: 10px;
+}
+li {
+    list-style-type: none;
+    line-height: 100%;
+}
+.locations:hover .popover,
+.amenities:hover .popover {
+    display: block;
+}
+
+.places{
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.places h1{
+    font-size: 30px;
+    margin-bottom: 2px;
+    margin-left: 18px;
+}
+.placesit{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+.placesit .articles{
+display: flex;
+flex-direction: row;
+}
+.placesit article{
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    display: inline-block;
+}
+.placesit article h2{
+    font-size: 30px;
+    text-align: center;
+}
+.user, .description{
+    padding: 10px;
+}
